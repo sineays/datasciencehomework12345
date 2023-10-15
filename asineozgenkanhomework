@@ -1,0 +1,204 @@
+if __name__ == '__main__':
+    print("Hello, World!")
+
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+    n = int(input().strip())
+    if n % 2 == 1:
+        print("Weird")
+    elif 2 <= n <= 5:
+        print("Not Weird")
+    elif 6 <= n <= 20 :
+        print ("Weird")
+    else:
+        print("Not Weird")
+
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+
+    print(a + b)
+    print(a - b)
+    print(a * b)
+
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+
+    print(a // b)
+    print(a / b)
+
+if __name__ == '__main__':
+    n = int(input())
+    for i in range(n):
+         print(i ** 2)
+
+def is_leap(year):
+    leap = False
+
+    # Write your logic here
+    if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
+        return not leap
+    else:
+        return leap
+
+if __name__ == '__main__':
+    n = int(input())
+    for i in range (1, n+1):
+        print(i,end='')
+
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    print ([ [ i, j, k] for i in range( x + 1) for j in range( y + 1) for k in range ( z + 1 ) if ( ( i + j + k) != n )])
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    lst = list(arr)
+    scores = list()
+
+    for score in lst:
+        if score not in scores:
+            scores.append(score)
+        else :
+            continue
+    ordr = sorted(scores, reverse=True)
+    print(ordr[1])
+
+n=int(input())
+arr=[[input(),float(input())] for _ in range(0,n)]
+arr.sort(key=lambda x: (x[1],x[0]))
+names = [i[0] for i in arr]
+marks = [i[1] for i in arr]
+min_val=min(marks)
+while marks[0]==min_val:
+    marks.remove(marks[0])
+    names.remove(names[0])
+for x in range(0,len(marks)):
+    if marks[x]==min(marks):
+        print(names[x])
+
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    query_score=student_marks[query_name]
+    a=(sum(query_score)/len(query_score))
+    print("{0:.2f}".format(a))
+
+
+def split_and_join(line):
+
+    words = line.split()
+
+
+    result = "-".join(words)
+
+    return result
+
+
+input_line = "this is a string"
+output_line = split_and_join(input_line)
+print(output_line)
+
+#
+# Complete the 'print_full_name' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts following parameters:
+#  1. STRING first
+#  2. STRING last
+#
+
+def print_full_name(x, y):
+
+    y = y+"!"
+    print("Hello",x, y,"You just delved into python.");
+
+c = 0
+def count_substring(string, sub_string):
+    global c
+    if(string.find(sub_string) != -1):
+        c = c +1
+        count_substring(string[string.find(sub_string)+1:],sub_string)
+    return c
+
+s = input()
+
+
+has_alphanumeric = False
+has_alphabetical = False
+has_digits = False
+has_lowercase = False
+has_uppercase = False
+
+
+for char in s:
+    if char.isalnum():
+        has_alphanumeric = True
+    if char.isalpha():
+        has_alphabetical = True
+    if char.isdigit():
+        has_digits = True
+    if char.islower():
+        has_lowercase = True
+    if char.isupper():
+        has_uppercase = True
+
+
+print(has_alphanumeric)
+print(has_alphabetical)
+print(has_digits)
+print(has_lowercase)
+print(has_uppercase)
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+A = int(input()) #This must be an odd number
+c = 'H'
+#Top Cone
+for i in range(A):
+    print((c*i).rjust(A-1)+c+(c*i).ljust(A-1))
+#Top Pillars
+for i in range(A+1):
+    print((c*A).center(A*2)+(c*A).center(A*6))
+#Middle Belt
+for i in range((A+1)//2):
+    print((c*A*5).center(A*6))
+#Bottom Pillars
+for i in range(A+1):
+    print((c*A).center(A*2)+(c*A).center(A*6))
+#Bottom Cone
+for i in range(A):
+    print(((c*(A-i-1)).rjust(A)+c+(c*(A-i-1)).ljust(A)).rjust(A*6))
+
+def wrap(string, max_width):
+    wrapresult = textwrap.fill(string,max_width)
+    return wrapresult
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n, m = map(int,input().split())
+for i in range(n//2):
+    j = int((2*i)+1)
+    print(('.|.'*j).center(m, '-'))
+print('WELCOME'.center(m,'-'))
+for i in reversed(range(n//2)):
+    j = int((2*i)+1)
+    print(('.|.'*j).center(m, '-'))
+
